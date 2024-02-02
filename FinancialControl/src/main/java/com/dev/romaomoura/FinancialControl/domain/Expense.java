@@ -31,5 +31,5 @@ public class Expense {
     private StatusExpense statusExpense;
 
     @Embedded
-    private Details details;
+    private Detail detail;
 }

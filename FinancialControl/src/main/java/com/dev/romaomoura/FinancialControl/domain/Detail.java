@@ -5,9 +5,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-@Embeddable
 @Data
-public class Details {
+@Embeddable
+public class Detail {
     private Integer NumberOfInstallments;
     private Integer quantityPaid;
     private Integer quantityOpened;
