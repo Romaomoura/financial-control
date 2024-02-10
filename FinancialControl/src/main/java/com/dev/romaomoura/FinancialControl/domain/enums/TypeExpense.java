@@ -1,8 +1,9 @@
 package com.dev.romaomoura.FinancialControl.domain.enums;
 
 public enum TypeExpense {
-    CARD,
-    CHECK,
-    SCHEDULED_PIX,
-    MONEY,
+    FOR_CARD_DUE,
+    CARD_INSTALLMENT,
+    IN_PIX,
+    IN_CASH,
+    FIXED
 }

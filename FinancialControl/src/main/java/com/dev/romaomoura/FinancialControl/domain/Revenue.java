@@ -6,20 +6,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "detail-expense")
-public class Detail {
+@Entity(name = "revenues")
+public class Revenue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer numberOfInstallments;
-    private Integer quantityPaid;
-    private Integer quantityOpened;
-    private String productDescription;
-    private BigDecimal amount;
+    private String name;
+    private LocalDateTime entryDate;
+    private String description;
+    private BigDecimal value;
+
+    @OneToOne
+    private WalletAccount walletAccount;
+
 }

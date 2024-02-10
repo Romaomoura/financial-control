@@ -20,8 +20,8 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String expenseName;
-    private LocalDateTime PaymentDate;
+    private String name;
+    private LocalDateTime paymentDate;
     private LocalDateTime dueDate;
     private String description;
 
@@ -30,6 +30,15 @@ public class Expense {
     private BigDecimal value;
     private StatusExpense statusExpense;
 
-    @Embedded
+    @OneToOne
     private Detail detail;
+
+    @ManyToOne
+    private Card card;
+
+    private void setStatusExpensiveLate(){
+        if ( (this.paymentDate == null) && (this.dueDate.isBefore(LocalDateTime.now()) )){
+            this.statusExpense = StatusExpense.DELAYED_EXPENSES;
+        }
+    }
 }
